@@ -1,4 +1,4 @@
-PROG=lifeame
+PROG=lifegame
 SRCS=main.c clean_field.c random_field.c update_field.c output_field.c
 SRCS_MDEP=$(SRCS)
 SRCS_NDEP=$(SRCS)
