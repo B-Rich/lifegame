@@ -1,10 +1,10 @@
 #include "def.h"
 
-void update_field (field_t dst_field[1+M+1][1+N+1], field_t src_field[1+M+1][1+N+1], int tid, int nthreads)
+void update_field (field_t dst_field[1+M+1][1+N+1], field_t src_field[1+M+1][1+N+1], int tid, int nthreads, int start_M, int end_M)
 {
 	int i, j;
 
-	for(i=1+(1+M+1-1)*tid/nthreads; i<1+(1+M+1-1)*(tid+1)/nthreads; i++){
+	for(i=start_M; i<end_M; i++){
 		for(j=1; j<1+N+1-1; j++){
 			int cnt=0;
 			if(src_field[i-1][j-1]==1)

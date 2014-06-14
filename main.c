@@ -15,6 +15,7 @@ int main()
 #pragma omp parallel private(tid)
 {
 	int i;
+	int start_M, end_M;
 
 	tid=omp_get_thread_num();
 	if(tid==0)
@@ -25,12 +26,15 @@ int main()
 	fflush(stdout);
 #pragma omp barrier
 
+	start_M=1+(1+M+1-1)*tid/nthreads;
+	end_M=1+(1+M+1-1)*(tid+1)/nthreads;
+
 	for(i=1; i<=TURN; i++){
 		if(tid==0){
 			printf("Turn: %d\n", i);
 		}
 
-		update_field(gfield[i%2], gfield[(i+1)%2], tid, nthreads);
+		update_field(gfield[i%2], gfield[(i+1)%2], tid, nthreads, start_M, end_M);
 
 		if(tid==0){
 			output_field(gfield[i%2], i);
