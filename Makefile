@@ -18,6 +18,8 @@ OPTFLAGS:=-O0 -g
 WARNFLAGS:=-ansi -pedantic -Wall -Wextra -W -Wundef -Wshadow -Wcast-qual -Winline -Wno-long-long -fsigned-char
 RM:=rm -r -f
 WC:=wc -c -l
+ADDCFLAGS=-fopenmp
+LINKFLAGS=-fopenmp
 
 COMPILE.c=$(CC) $(HEADERFLAGS) $(OPTFLAGS) $(WARNFLAGS) $(DEPFLAGS) $(ADDCFLAGS) $(CFLAGS) -c
 LINK.o=$(CC) $(OPTFLAGS) $(WARNFLAGS) $(LINKFLAGS) $(LDFLAGS)
