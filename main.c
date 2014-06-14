@@ -34,7 +34,7 @@ int main()
 			printf("Turn: %d\n", i);
 		}
 
-		update_field(gfield[i%2], gfield[(i+1)%2], tid, nthreads, start_M, end_M);
+		update_field(gfield[i%2], gfield[(i+1)%2], start_M, end_M);
 
 		if(tid==0){
 			output_field(gfield[i%2], i);

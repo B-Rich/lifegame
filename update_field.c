@@ -1,6 +1,6 @@
 #include "def.h"
 
-void update_field (field_t dst_field[1+M+1][1+N+1], field_t src_field[1+M+1][1+N+1], int tid, int nthreads, int start_M, int end_M)
+void update_field (field_t dst_field[1+M+1][1+N+1], field_t src_field[1+M+1][1+N+1], int start_M, int end_M)
 {
 	int i, j;
 
