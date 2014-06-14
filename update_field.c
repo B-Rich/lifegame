@@ -9,17 +9,17 @@ void update_field (field_t dst_field[1+M+1][1+N+1], field_t src_field[1+M+1][1+N
 			int cnt=0;
 			if(src_field[i-1][j-1]==1)
 				cnt++;
-			if(src_field[i-1][j	]==1)
+			if(src_field[i-1][j  ]==1)
 				cnt++;
 			if(src_field[i-1][j+1]==1)
 				cnt++;
-			if(src_field[i	][j-1]==1)
+			if(src_field[i  ][j-1]==1)
 				cnt++;
-			if(src_field[i	][j+1]==1)
+			if(src_field[i  ][j+1]==1)
 				cnt++;
 			if(src_field[i+1][j-1]==1)
 				cnt++;
-			if(src_field[i+1][j	]==1)
+			if(src_field[i+1][j  ]==1)
 				cnt++;
 			if(src_field[i+1][j+1]==1)
 				cnt++;
