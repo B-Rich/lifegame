@@ -1,11 +1,14 @@
 #include "def.h"
 #include <stdio.h>
+#include <sys/time.h>
 
 field_t gfield[2][1+M+1][1+N+1];
 int tid, nthreads;
 
 int main()
 {
+	struct timeval start_time, end_time;
+
 	clean_field(gfield[0]);
 	clean_field(gfield[1]);
 	random_field(gfield[0]);
@@ -29,6 +32,8 @@ int main()
 	start_M=1+(1+M+1-1)*tid/nthreads;
 	end_M=1+(1+M+1-1)*(tid+1)/nthreads;
 
+	gettimeofday(&start_time, NULL);
+
 	for(i=1; i<=TURN; i++){
 		if(tid==0){
 			printf("Turn: %d\n", i);
@@ -41,6 +46,11 @@ int main()
 		}
 #pragma omp barrier
 	}
+
+	gettimeofday(&end_time, NULL);
 }
+
+	printf("%f\n", (end_time.tv_sec+end_time.tv_usec/1000000.0)-(start_time.tv_sec+start_time.tv_usec/1000000.0));
+
 	return 0;
 }
